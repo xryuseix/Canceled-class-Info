@@ -12,7 +12,7 @@ def addtags(string, tags):
     return string
 
 def adddate(string):
-    string += '\n( ' + str(datetime.now()) + " 現在)"
+    string += '\n( ' + datetime.now().strftime('%Y年%m月%d日 %H:%M:%S') + " 現在)"
     return string
 
 # tweet string settings
