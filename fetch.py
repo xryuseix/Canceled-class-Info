@@ -29,6 +29,6 @@ def fetch():
 
     for i in range(len(status)):
         if status[i] != '通常通り':
-            tweet.append("テストです！！\n" + campus[i] + "は" + status[i] + "です．")
+            tweet.append("【立命館大学休講情報】\n" + campus[i] + "は「" + status[i] + "」です．")
 
     return tweet
