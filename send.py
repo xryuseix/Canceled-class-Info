@@ -19,7 +19,7 @@ api = twitter.Api(consumer_key=os.environ["CONSUMER_KEY"],
 for i in tweet:
     tweetstring = i + '\n( ' + datetime.now().strftime('%Y年%m月%d日 %H:%M:%S') + " 現在)\n\n"
     for j in tags:
-        
+        tweetstring = tweetstring + "#" + j + ' '
     api.PostUpdate(tweetstring)
 
 # heroku config:set NormalTweet=True と打つと通常の通知も送れる
