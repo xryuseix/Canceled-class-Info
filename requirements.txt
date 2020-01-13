@@ -1,2 +1,4 @@
 bottle==0.12.18
 python-twitter==3.5
+pycrawl==1.1.0
+cssselect==1.1.0
