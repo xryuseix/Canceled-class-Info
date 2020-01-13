@@ -27,7 +27,11 @@ def fetch():
 
     tweet = []
 
-    status[1] = '壊滅状態'
+    status[0] = '壊滅状態'
+    status[1] = '大丈夫そう'
+    status[2] = '炎上🔥'
+    status[3] = '休講'
+    status[4] = 'テストめんどい．．．'
 
     for i in range(len(status)):
         if status[i] != '通常通り':
