@@ -16,5 +16,5 @@ api = twitter.Api(consumer_key=os.environ["CONSUMER_KEY"],
                   )
 
 for i in tweet:
-    api.PostUpdate(i + '\n( ' + datetime.now() + " 現在)")
+    api.PostUpdate(i + '\n( ' + str(datetime.now()) + " 現在)")
 
