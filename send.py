@@ -30,21 +30,21 @@ api = twitter.Api(consumer_key=os.environ["CONSUMER_KEY"],
 if os.environ["EmergencyTweet"] == "True":
     for i in tweet:
         tweetstring = i
-        tweetstring += adddate(tweetstring)
-        tweetstring += addtags(tweetstring, tags)
+        tweetstring = adddate(tweetstring)
+        tweetstring = addtags(tweetstring, tags)
         api.PostUpdate(tweetstring)
 
 # heroku config:set NormalTweet=True と打つと通常の通知も送れる
 if os.environ["NormalTweet"] == "True":
     if len(tweet) == 0:
         tweetstring = "本日は全キャンパス通常通りです．"
-        tweetstring += adddate(tweetstring)
-        tweetstring += addtags(tweetstring, tags)
+        tweetstring = adddate(tweetstring)
+        tweetstring = addtags(tweetstring, tags)
         api.PostUpdate(tweetstring)
 
 # heroku config:set TestTweet=True と打つとテストができる
 if os.environ["TestTweet"] == "True":
     tweetstring = "これは訳あってテストする羽目になった時に送るツイートです．"
-    tweetstring += adddate(tweetstring)
-    tweetstring += addtags(tweetstring, tags)
+    tweetstring = adddate(tweetstring)
+    tweetstring = addtags(tweetstring, tags)
     api.PostUpdate(tweetstring)
