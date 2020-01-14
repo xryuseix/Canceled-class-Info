@@ -31,4 +31,4 @@ def fetch():
         if status[i] != '通常通り':
             tweet.append("【立命館大学休講情報】\n" + campus[i] + "は「" + status[i] + "」です．")
 
-    return tweet
+    return tweet, status, campus

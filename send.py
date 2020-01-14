@@ -2,6 +2,7 @@
 
 import os
 import fetch
+import print_logs
 import twitter
 from datetime import datetime
 
@@ -16,7 +17,7 @@ def adddate(string):
     return string
 
 # tweet string settings
-tweet = fetch.fetch()
+tweet, status, campus = fetch.fetch()
 tags = ["立命館", "立命館大学", "休講", "警報", "拡散希望"]
 
 # api settings
@@ -48,3 +49,5 @@ if os.environ["TestTweet"] == "True":
     tweetstring = adddate(tweetstring)
     tweetstring = addtags(tweetstring, tags)
     api.PostUpdate(tweetstring)
+
+print_logs.print_logs(status, campus)
