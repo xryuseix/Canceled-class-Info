@@ -1,5 +1,7 @@
 # ログを出力
 import os
+from datetime import datetime
+
 def print_logs(status, campus):
     print("-------- log start --------\n")
     
