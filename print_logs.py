@@ -16,5 +16,3 @@ def print_logs(status, campus):
         print(campus[i] + " : " + status[i])
         
     print("-------- log end --------")
-
-print_logs()
