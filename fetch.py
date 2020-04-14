@@ -4,31 +4,27 @@ def fetch():
     url = 'http://www.ritsumei.ac.jp/academic-affairs/status/'
     doc = pycrawl.PyCrawl(url)
 
-    # 休講情報を持つ配列
-    status = []
+    # 休講理由をキー，キャンパス名を配列
+    statuses = {}
 
     # キャンパス名
     campus = ['井笠', 'びわこ・くさつ', '大阪いばらき', '大阪梅田', '朱雀']
 
-    # 井笠キャンパス
-    status.append(doc.xpath('//*[@id="main"]/section[1]/section[1]/div/div[2]/div[2]/ul/li/span[1]').inner_text()[0:-2])
-
-    # びわこ・くさつキャンパス
-    status.append(doc.xpath('//*[@id="main"]/section[1]/section[2]/div/div[2]/div[2]/ul/li/span[1]').inner_text()[0:-2])
-
-    # 大阪いばらきキャンパス
-    status.append(doc.xpath('//*[@id="main"]/section[1]/section[3]/div/div[2]/div[2]/ul/li/span[1]').inner_text()[0:-2])
-
-    # 大阪梅田キャンパス
-    status.append(doc.xpath('//*[@id="main"]/section[1]/section[4]/div/div[2]/div[2]/ul/li/span[1]').inner_text()[0:-2])
-
-    # 朱雀キャンパス
-    status.append(doc.xpath('//*[@id="main"]/section[1]/section[5]/div/div[2]/div[2]/ul/li/span[1]').inner_text()[0:-2])
-
+    
+    for i in range(1, 6):
+        status = doc.xpath('//*[@id="main"]/section[1]/section['+str(i)+']/div/div[2]/div[2]/ul/li/span[1]').inner_text()[0:-2]
+        if status in statuses:
+            statuses[status].append(campus[i - 1])
+        else:
+            statuses[status] = [campus[i - 1]]
+    
     tweet = []
-
-    for i in range(len(status)):
-        if status[i] != '通常通り':
-            tweet.append("【立命館大学休講情報】\n" + campus[i] + "は「" + status[i] + "」です．")
-
-    return tweet, status, campus
+    
+    for key in statuses.keys():
+        if key != '通常通り':
+            if len(statuses[key]) == 5:
+                campusString = '全'
+            else:
+                campusString = ','.join(statuses[key])
+            tweet.append("【立命館大学休講情報】\n本日" + campusString + "キャンパスは「" + key + "」です．")
+    
