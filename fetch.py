@@ -28,3 +28,4 @@ def fetch():
                 campusString = ','.join(statuses[key])
             tweet.append("【立命館大学休講情報】\n本日" + campusString + "キャンパスは「" + key + "」です．")
     
+    return tweet, statuses, campus

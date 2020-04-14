@@ -14,8 +14,9 @@ def print_logs(status, campus):
     print("")
     
     print("[CAMPUS_STATE]")
-    for i in range(len(status)):
-        print(campus[i] + " : " + status[i])
+    for st in status.keys():
+        print(st + " : ",end='')
+        print(status[st])
     print("")
     
     print("-------- log end --------")
