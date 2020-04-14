@@ -5,6 +5,7 @@ import fetch
 import print_logs
 import twitter
 from datetime import datetime
+import pytz
 
 def addtags(string, tags):
     string += "\n\n"
@@ -13,7 +14,7 @@ def addtags(string, tags):
     return string
 
 def adddate(string):
-    string += '\n( ' + datetime.now().strftime('%Y年%m月%d日 %H:%M:%S') + " 現在)"
+    string += '\n( ' + datetime.now(pytz.timezone('Asia/Tokyo')).strftime('%Y年%m月%d日 %H:%M:%S') + " 現在)"
     return string
 
 # tweet string settings
