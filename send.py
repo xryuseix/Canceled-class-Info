@@ -19,7 +19,7 @@ def adddate(string):
 
 # tweet string settings
 tweet, status, campus = fetch.fetch()
-tags = ["立命館", "立命館大学", "休講", "警報", "拡散希望"]
+tags = ["立命館", "立命館大学", "休講", "警報"]
 
 # api settings
 api = twitter.Api(consumer_key=os.environ["CONSUMER_KEY"],
