@@ -49,6 +49,6 @@ if os.environ["TestTweet"] == "True":
     tweetstring = "これは訳あってテストする羽目になった時に送るツイートです．"
     tweetstring = adddate(tweetstring)
     tweetstring = addtags(tweetstring, tags)
-    api.PostUpdate(tweetstring)
+    api.PostUpdate(tweetstring + "\nhttp://www.ritsumei.ac.jp/academic-affairs/status/")
 
 print_logs.print_logs(status, campus)
