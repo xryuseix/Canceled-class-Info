@@ -38,7 +38,7 @@ if os.environ["EmergencyTweet"] == "True":
 
 # heroku config:set NormalTweet=True と打つと通常の通知も送れる
 if os.environ["NormalTweet"] == "True":
-    if len(tweet) == 0:
+    if not tweet:
         tweetstring = "本日は全キャンパス通常通りです．"
         tweetstring = adddate(tweetstring)
         tweetstring = addtags(tweetstring, tags)
