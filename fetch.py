@@ -21,7 +21,7 @@ def fetch():
     tweet = []
     
     for key in statuses:
-        if key != '通常通り' and key != 'WEB授業':
+        if key != '通常通り' and key != 'WEB授業' and key != '通常授業':
             if len(statuses[key]) == 5:
                 campusString = '全'
             else:
